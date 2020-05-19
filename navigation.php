@@ -21,5 +21,10 @@ return [
         'children' => [
             'Custom Payment Providers' => 'docs/api/extending/payment-providers'
         ]
+    ],
+    'API Clients' => [
+        'children' => [
+            'Javascript' => 'https://github.com/getcandy/js-client'
+        ]
     ]
 ];

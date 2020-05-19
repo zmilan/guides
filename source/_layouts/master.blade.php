@@ -61,7 +61,7 @@
                     @endif
                 </div>
             </div>
-
+            
             @yield('nav-toggle')
         </header>
 

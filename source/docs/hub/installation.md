@@ -59,3 +59,5 @@ Install the dependencies
 ```
 npm install
 ```
+
+### Proxy Authentication
