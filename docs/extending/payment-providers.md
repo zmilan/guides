@@ -183,9 +183,9 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(PaymentManager $paymentManager)
     {
-        PaymentManager::extend('stripe', function ($app) {
+        $paymentManager->extend('stripe', function ($app) {
             return new StripePayment;
         });
     }

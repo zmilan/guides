@@ -116,6 +116,12 @@ Install Laravel Passport
 php artisan passport:install
 ```
 
+Lastly we need to create an initial index in Elasticsearch, we don't have any products yet, which is fine, we just need to get it going.
+
+```
+php artisan candy:search:index
+```
+
 > Congratulations, you've installed the GetCandy API
 
 Next up, [see the different config options](/api/configuration)

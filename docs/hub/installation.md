@@ -1,8 +1,6 @@
 ---
 title: Installation
 description: Install the Nuxt.js admin hub
-extends: _layouts.documentation
-section: content
 ---
 
 # Hub Installation
@@ -39,10 +37,16 @@ Open up the copied `.env` file and adjust the values to match your API. You may 
 ```
 127.0.0.1 example-storefront.test
 ```
-Install the dependencies
 
+Install the dependencies
 ```
 npm install
 ```
 
-### Proxy Authentication
+Start the server
+
+```
+npm run dev
+```
+
+Next steps, [authentication](/hub/authentication)
