@@ -45,6 +45,7 @@ module.exports = {
     width: ['responsive', 'focus']
   },
   plugins: [
+    require('@tailwindcss/ui'),
     function({ addUtilities }) {
       const newUtilities = {
         '.transition-fast': {

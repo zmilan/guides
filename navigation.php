@@ -12,7 +12,7 @@ return [
             ],
             'Admin Hub' => [
                 'children' => [
-                    'Installation' => 'docs/hub/installation/admin-hub'
+                    'Installation' => 'docs/hub/installation'
                 ]
             ]
         ],

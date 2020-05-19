@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 return [
-    'baseUrl' => '',
+    'baseUrl' => 'https://getcandy-website.netlify.app/',
     'production' => false,
     'siteName' => 'GetCandy Guides',
     'siteDescription' => 'Guides for using the GetCandy API & Admin Hub.',

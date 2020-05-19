@@ -43,14 +43,19 @@
         <header class="flex items-center shadow bg-white border-b h-24 mb-8 py-4" role="banner">
             <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
                 <div class="flex items-center">
-                    <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
+                    <a href="https://getcandy-website.netlify.app/" title="{{ $page->siteName }} home" class="inline-flex items-center">
                         <img class="h-8 md:h-10 mr-3" src="/assets/img/logo.png" alt="{{ $page->siteName }} logo" />
-
-                        <h1 class="text-lg md:text-2xl text-blue-900 font-semibold hover:text-blue-600 my-0 pr-4">{{ $page->siteName }}</h1>
+                        <h1 class="text-base text-gray-600 font-semibold hover:text-blue-600 my-0 pr-4">{{ $page->siteName }}</h1>
                     </a>
+                    <div class="hidden md:block ml-6 text-sm border-l pl-6">
+                        <a href="https://getcandy.io" class="text-gray-600 font-regular" title="Go to main GetCandy website">GetCandy Website</a>
+                        <a href="https://community.getcandy.io/" class="text-gray-600 font-regular ml-6" title="View the GetCandy forum">Community</a>
+                        <a href="https://api-docs.getcandy.io/" class="text-gray-600 font-regular ml-6" title="View the GetCandy forum">API Reference</a>
+                    </div>
                 </div>
 
                 <div class="flex flex-1 justify-end items-center text-right md:pl-10">
+
                     @if ($page->docsearchApiKey && $page->docsearchIndexName)
                         @include('_nav.search-input')
                     @endif
