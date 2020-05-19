@@ -5,8 +5,8 @@ use Illuminate\Support\Str;
 return [
     'baseUrl' => '',
     'production' => false,
-    'siteName' => 'Docs Starter Template',
-    'siteDescription' => 'Beautiful docs powered by Jigsaw',
+    'siteName' => 'GetCandy Guides',
+    'siteDescription' => 'Guides for using the GetCandy API & Admin Hub.',
 
     // Algolia DocSearch credentials
     'docsearchApiKey' => '',
