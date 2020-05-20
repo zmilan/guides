@@ -15,7 +15,7 @@ Before anyone can checkout, they will need to add `product_variants` to their ba
 
 [See API reference](https://api-docs.getcandy.io/#operation/post-basket-lines)
 
-## Create an order {#create-order}
+## Create an order
 
 Once you have a basket, you can then create an order from that.
 
