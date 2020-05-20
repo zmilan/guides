@@ -48,11 +48,47 @@ module.exports = {
         ]
       },
       {
-        title: 'Extending the API',   // required
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
+        title: 'API',   // required
+        collapsable: true, // optional, defaults to true
         children: [
-          '/extending/payment-providers'
+          {
+            title: 'Extending',   // required
+            collapsable: true, // optional, defaults to true
+            sidebarDepth: 1,    // optional, defaults to 1
+            children: [
+              '/extending/api/introduction',
+              '/extending/api/events',
+              '/extending/api/payment-providers'
+            ]
+          }
+        ]
+      },
+      {
+        title: 'Admin Hub',   // required
+        children: [
+          {
+            title: 'Extending',   // required
+            collapsable: true, // optional, defaults to true
+            sidebarDepth: 1,    // optional, defaults to 1
+            children: [
+              '/extending/hub/introduction',
+              '/extending/hub/hooks'
+            ]
+          },
+          {
+            title: 'Modules',   // required
+            collapsable: false, // optional, defaults to true
+            children: [
+              '/hub/modules/hub-core',
+              '/hub/modules/hub-categories',
+              '/hub/modules/hub-collections',
+              '/hub/modules/hub-customers',
+              '/hub/modules/hub-orders',
+              '/hub/modules/hub-products',
+              '/hub/modules/hub-reports',
+              '/hub/modules/hub-shipping'
+            ]
+          }
         ]
       },
       {
