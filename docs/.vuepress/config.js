@@ -11,6 +11,7 @@ module.exports = {
     ['meta', { name: "msapplication-TileColor", content: "#3a0839"}],
     ['meta', { name: "msapplication-config", content: "/assets/icons/browserconfig.xml"}],
     ['meta', { name: "theme-color", content: "#ffffff"}],
+    ['script', { src: 'https://roadrunner.getcandy.io/script.js', site: 'CAQGREAV', defer: true }]
   ],
   themeConfig: {
     logo: '/assets/img/logo.png',
