@@ -34,6 +34,7 @@ module.exports = {
             children: [
               '/api/installation',
               '/api/upgrading',
+              '/api/protecting-routes',
               '/api/configuration',
               '/api/order-lifecycle'
             ]
