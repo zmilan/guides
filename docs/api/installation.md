@@ -23,13 +23,13 @@ The GetCandy API is a Laravel package, designed to be easily added to any new or
 Require the API package (currently in Beta)
 
 ```
-composer require getcandy/candy-api:dev-release/0.9.0_beta
+composer require getcandy/candy-api:^0.9-beta
 ```
 
 Or add this to your `composer.json` file
 
 ```javascript
-"getcandy/candy-api": "dev-release/0.9.0_beta"
+"getcandy/candy-api": "^0.9-beta"
 ```
 
 ### A note on Vimeo uploads
@@ -69,21 +69,6 @@ class User extends Authenticatable
 //...
 ```
 
-Update your authentication config to enable passport
-
-`config/auth.php`
-
-```php
-'guards' => [
-    //...
-    'api' => [
-        'driver' => 'passport',
-        'provider' => 'users',
-        'hash' => false,
-    ],
-]
-```
-
 ## Enable GetCandy routes
 
 Update your `RouteServiceProvider` and add the GetCandy routes.
@@ -104,16 +89,14 @@ public function map()
 }
 ```
 
+::: danger
+GetCandy no longer ships with Passport so you will need to protect your routes. See [Protecting your routes](/api/protecting-routes)
+:::
+
 ## Run the installer
 
 ```
 php artisan candy:install
-```
-
-Install Laravel Passport
-
-```
-php artisan passport:install
 ```
 
 Lastly we need to create an initial index in Elasticsearch, we don't have any products yet, which is fine, we just need to get it going.
