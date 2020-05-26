@@ -33,6 +33,7 @@ module.exports = {
             sidebarDepth: 1,    // optional, defaults to 1
             children: [
               '/api/installation',
+              '/api/upgrading',
               '/api/configuration',
               '/api/order-lifecycle'
             ]
