@@ -42,14 +42,16 @@ For the `auth` routes we want to add the sanctum middleware, we do not need to a
 use GetCandy
 use Illuminate\Support\Facades\Route;
 //...
-GetCandy::routes(function ($registrar) {
+GetCandy::routes([
+    'prefix' => 'api/v1'
+], function ($router) {
     Route::group([
         'middleware' => 'auth:sanctum'
     ], function () use ($registrar) {
         $registrar->auth();
-    })
+    });
     $registrar->guest();
-})
+});
 ```
 
 Once you have authenticated a user, they will still appear for guest routes on `$request->user()`.
@@ -66,14 +68,16 @@ Install Passport as per their documentation.
 use GetCandy
 use Illuminate\Support\Facades\Route;
 //...
-GetCandy::routes(function ($registrar) {
+GetCandy::routes([
+    'prefix' => 'api/v1'
+], function ($router) {
     Route::group([
         'middleware' => 'auth:api'
     ], function () use ($registrar) {
         $registrar->auth();
-    })
+    });
     $registrar->guest();
-})
+});
 ```
 
 ### Guest routes and client credentials
