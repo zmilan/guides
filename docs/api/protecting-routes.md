@@ -44,13 +44,17 @@ use Illuminate\Support\Facades\Route;
 //...
 GetCandy::routes([
     'prefix' => 'api/v1'
-], function ($router) {
+], function ($registrar) {
     Route::group([
-        'middleware' => 'auth:sanctum'
+         'middleware' => ['auth:sanctum', 'api']
     ], function () use ($registrar) {
         $registrar->auth();
     });
-    $registrar->guest();
+    Route::group([
+        'middleware' => ['api']
+    ], function () use ($registrar) {
+        $registrar->guest();
+    });
 });
 ```
 
@@ -70,13 +74,17 @@ use Illuminate\Support\Facades\Route;
 //...
 GetCandy::routes([
     'prefix' => 'api/v1'
-], function ($router) {
+], function ($registrar) {
     Route::group([
-        'middleware' => 'auth:api'
+         'middleware' => ['auth:api', 'api']
     ], function () use ($registrar) {
         $registrar->auth();
     });
-    $registrar->guest();
+    Route::group([
+        'middleware' => ['api']
+    ], function () use ($registrar) {
+        $registrar->guest();
+    });
 });
 ```
 
