@@ -1,0 +1,93 @@
+body {
+  background-image: url(/sweet_one.svg),url(/sweet_two.svg);
+  background-repeat: no-repeat;
+  background-position: calc(0% + 50px) calc(0% + 240px),calc(100% - 80px) calc(0% + 440px);
+}
+@media only screen and (max-width: 1470px) {
+  body {
+    background-image:none;
+  }
+}
+
+.striped {
+  background-color: #fdfdfd;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f5f5f5' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.overflow-state {
+  overflow: hidden;
+  max-height: 100vh;
+  position: fixed;
+}
+
+code {
+  @apply .bg-blue-100;
+  @apply .text-gray-900;
+  @apply .font-mono;
+}
+
+pre > code {
+  @apply .bg-transparent;
+  color: inherit;
+}
+.nuxt-content  {
+  h1,h2,h3,h4,h5,h6 {
+    @apply .font-serif;
+    &:first-of-type {
+      @apply .mt-0;
+    }
+  }
+  h1 {
+    @apply .text-4xl;
+    @apply .mb-12;
+    @apply .mt-4;
+    @apply .leading-tight;
+    @apply .text-pink-500;
+  }
+  h2 {
+    @apply .mb-4;
+    @apply .text-2xl;
+    @apply .mt-8;
+    @apply .relative;
+    @apply .inline-block;
+  }
+  a {
+    position: relative;
+    @apply .text-pink-500;
+    &:hover {
+      @apply .text-blue-700;
+    }
+  }
+  h3 {
+    @apply .mb-2;
+    @apply .text-xl;
+    @apply .mt-8;
+  }
+  p {
+    @apply .mb-4;
+    @apply .text-lg;
+    @apply .text-blue-900;
+  }
+  blockquote {
+    @apply .border-l-4;
+    @apply .italic;
+    @apply .pl-4;
+    p {
+      @apply .text-gray-600;
+    }
+  }
+  ul {
+    @apply .ml-4;
+    @apply .list-disc;
+    ul {
+      @apply .my-0;
+    }
+    li {
+      @apply .leading-loose;
+      @apply .text-base;
+    }
+    p {
+      @apply .m-0;
+    }
+  }
+}

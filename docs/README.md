@@ -1,2 +1,0 @@
-# What is GetCandy?
-GetCandy is a combined e-commerce API and administration system designed to help you create amazing online stores with full control over functionality and user experience. It is currently in Alpha release.
