@@ -68,7 +68,21 @@ export default {
     async routes () {
       const { $content } = require('@nuxt/content')
       const files = await $content('', { deep: true }).fetch()
-      return files.map(file => file.path === '/index' ? '/' : file.path)
+
+      const mapped = files.map(file => {
+        if (file.path === '/index') {
+          return '/'
+        }
+
+        if (file.slug === 'index') {
+          return file.path.replace('index', '')
+        }
+
+        return file.path
+      })
+
+
+      return mapped
     }
   },
   hooks: {
