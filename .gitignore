@@ -3,3 +3,5 @@
 /vendor/
 .DS_Store
 /source/assets/build/
+/dist/
+.nuxt/

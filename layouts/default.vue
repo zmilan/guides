@@ -112,7 +112,7 @@
                 :to="{
                   name: 'section',
                   params: {
-                    section: 'api-guides'
+                    section: 'hub-guides'
                   }
                 }"
                 class="block hover:text-pink-500 text-gray-800"
@@ -123,7 +123,7 @@
                 :to="{
                   name: 'section',
                   params: {
-                    section: 'hub-guides'
+                    section: 'api-guides'
                   }
                 }"
                 class="block  hover:text-pink-500 text-gray-800"

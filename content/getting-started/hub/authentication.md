@@ -53,6 +53,12 @@ Then clear your route cache
 php artisan route:clear
 ```
 
+You will need to add the custom domain you configured above in Sanctum, remember to add the port number.
+
+```bash
+SANCTUM_STATEFUL_DOMAINS = 'hub.example-storefront.test:3000,localhost,127.0.0.1,127.0.0.1:8000,::1'
+```
+
 Update your session driver to use cookies and your session domain.
 
 ```
@@ -66,7 +72,7 @@ You will also need to implement a way of logging in users to your Laravel app, s
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 //...
-Route::post('/v1/login', function (Request $request) {
+Route::post('/login', function (Request $request) {
     if (Auth::attempt([
         'email' => $request->email,
         'password' => $request->password

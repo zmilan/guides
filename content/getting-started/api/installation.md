@@ -89,6 +89,10 @@ public function map()
 }
 ```
 
+## Database strict mode
+
+Currently, for reporting to function correctly you should set `strict` to false in your `config/db.php`. This workaround will be addressed in a future release.
+
 ## Run the installer
 
 ```
@@ -132,7 +136,7 @@ As described on the [Laravel website](https://laravel.com/docs/7.x/sanctum)
 
 > Laravel Sanctum provides a featherweight authentication system for SPAs (single page applications), mobile applications, and simple, token based APIs
 
-Install Sanctum as [per their documentation]((https://laravel.com/docs/7.x/sanctum)).
+Install Sanctum as [per their documentation](https://laravel.com/docs/7.x/sanctum).
 
 For the `auth` routes we want to add the sanctum middleware, we do not need to add any middleware to the guest routes as we'll be handling this through CORs and some Sanctum config.
 
