@@ -11,21 +11,6 @@ The hub supports both Laravel Passport and Sanctum as ways to authenticate and l
 
 ## Laravel Sanctum
 
-
-### Configure a custom domain
-
-Sanctum requires that the app be hosted on the same domain, which can be a pain for local development. You can set this up in your `nuxt.config.js` file, you may need to change this when going to production.
-
-```javascript
-server: {
-  port: 3000, // default: 3000
-  host: 'hub.example-storefront.test', // default: localhost,
-  timing: false
-},
-```
-
-### Use the Sanctum auth strategy
-
 If you're changing from using Passport, you will need to update your auth strategy. If this is a fresh install, this should already be configured for you.
 
 ```javascript
@@ -39,18 +24,30 @@ auth: {
 }
 ```
 
-### Laravel API tweaks
+### Using Localhost
 
-Depending on how you added your GetCandy routes i.e. with the `api/v1` prefix, you may need to add this to the sanctum config:
+Add localhost to your `SANCTUM_STATEFUL_DOMAINS` env value. Note we should be adding the port number.
 
-```php
-'prefix' => 'api/v1/sanctum',
+```bash
+SANCTUM_STATEFUL_DOMAINS = 'localhost:3000,localhost,127.0.0.1,127.0.0.1:8000,::1'
 ```
 
-Then clear your route cache
+A common gotcha is the `SESSION_DOMAIN` env variable, for localhost this should be an empty string
 
 ```
-php artisan route:clear
+SESSION_DOMAIN=""
+```
+
+### Using a custom domain
+
+If you want to use the hub on a custom domain, you can set this up in your `nuxt.config.js` file, you may need to change this when going to production.
+
+```javascript
+server: {
+  port: 3000, // default: 3000
+  host: 'hub.example-storefront.test', // default: localhost,
+  timing: false
+},
 ```
 
 You will need to add the custom domain you configured above in Sanctum, remember to add the port number.
@@ -62,8 +59,33 @@ SANCTUM_STATEFUL_DOMAINS = 'hub.example-storefront.test:3000,localhost,127.0.0.1
 Update your session driver to use cookies and your session domain.
 
 ```
-SESSION_DRIVER=cookie
 SESSION_DOMAIN=".example-storefront.test"
+```
+
+### Laravel API tweaks
+
+Set your `SESSION_DRIVER` to cookie on your API.
+
+```
+SESSION_DRIVER=cookie
+```
+
+Update `config/cors.php` to support credentials.
+
+```
+'supports_credentials' => true,
+```
+
+Depending on how you added your GetCandy routes i.e. with the `api/v1` prefix, you may need to add this to the sanctum config:
+
+```php
+'prefix' => 'api/v1/sanctum',
+```
+
+Then clear your route cache
+
+```
+php artisan route:clear
 ```
 
 You will also need to implement a way of logging in users to your Laravel app, something like this in your `api.php` routes file.
@@ -103,12 +125,25 @@ Should be
 ```
 ### Use the Passport auth scheme
 
+Logging in with Passport requires a slightly different strategy set up, replace the current `local` strategy with this one:
+
 ```javascript
 auth: {
   strategies: {
-    proxy: {
+    local: {
       _scheme: '@getcandy/hub-core/src/modules/passport-scheme.js',
-      // ...
+      endpoints: {
+        login: { url: process.env.AUTH_LOGIN_ENDPOINT, method: 'post', propertyName: false },
+        logout: false,
+        user: {
+          url: process.env.AUTH_USER_ENDPOINT,
+          method: 'get',
+          propertyName: 'data',
+          params: {
+            includes: 'roles.permissions,details'
+          }
+        }
+      }
     }
   }
 }
