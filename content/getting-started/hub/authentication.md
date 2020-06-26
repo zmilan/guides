@@ -105,6 +105,11 @@ Route::post('/login', function (Request $request) {
         'error' => 'invalid_credentials'
     ], 403);
 });
+
+Route::post('/logout', function (Request $request) {
+    Auth::logout();
+    return response()->json('', 204);
+});
 ```
 Once done, you should be able to log in to your Admin Hub.
 
