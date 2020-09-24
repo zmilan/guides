@@ -11,7 +11,7 @@ section: content
 
 ## Requirements
 
-- Laravel 7
+- Laravel 7|8
 - MySQL 5.7
 - Elasticsearch 6.8
 
@@ -23,13 +23,13 @@ The GetCandy API is a Laravel package, designed to be easily added to any new or
 Require the API package (currently in Beta)
 
 ```bash
-$ composer require getcandy/candy-api:^0.9-beta
+$ composer require getcandy/candy-api:^0.10-beta
 ```
 
 Or add this to your `composer.json` file
 
 ```javascript
-"getcandy/candy-api": "^0.9-beta"
+"getcandy/candy-api": "^0.10-beta"
 ```
 
 ### A note on Vimeo uploads

@@ -196,7 +196,7 @@ namespace App\Providers;
 
 use App\Payments\StripePayment;
 use Illuminate\Support\ServiceProvider;
-use GetCandy\Api\Core\Payments\PaymentManager;
+use GetCandy\Api\Core\Payments\PaymentContract;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -207,7 +207,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(PaymentManager $paymentManager)
+    public function boot(PaymentContract $paymentManager)
     {
         $paymentManager->extend('stripe', function ($app) {
             return new StripePayment;
